@@ -1,13 +1,12 @@
 import { initializeApp } from 'firebase/app'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDWO7EBEGQ-D8W83L2QoH9skHzJawKsn00",
-    authDomain: "cms-database-90d66.firebaseapp.com",
-    projectId: "cms-database-90d66",
-    storageBucket: "cms-database-90d66.appspot.com",
-    messagingSenderId: "66326031745",
-    appId: "1:66326031745:web:1a7cd158884a6701198c80",
-    measurementId: "G-JZW2T3KNNV"
+    apiKey: "AIzaSyA46AWeqMixKWl26YEf_mXR8_kSwIEC014",
+    authDomain: "cms-database-e8f5d.firebaseapp.com",
+    projectId: "cms-database-e8f5d",
+    storageBucket: "cms-database-e8f5d.appspot.com",
+    messagingSenderId: "172999974843",
+    appId: "1:172999974843:web:bbe9bbaa538365554bae9e"
   };
 
 export const firebaseApp = initializeApp(firebaseConfig);
