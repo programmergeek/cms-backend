@@ -1,4 +1,4 @@
-import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore'
+import { getFirestore, collection, addDoc, getDocs, DocumentData } from 'firebase/firestore'
 import { firebaseApp } from './firebaseInit'
 
 const firestore = getFirestore(firebaseApp)
@@ -15,5 +15,9 @@ export const createRecord = ( _title:string, _author:string, _content:string, _d
 
 export const getPosts = async () => {
     const posts = await getDocs(collection(firestore, "Posts"))
-    return posts.docs
+    const data = [] as DocumentData[]
+    posts.forEach((doc) => {
+        data.push(doc.data())
+    })
+    return data
 }
