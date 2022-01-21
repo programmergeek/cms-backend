@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, DocumentData, setDoc, doc } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, DocumentData, setDoc, doc, updateDoc } from 'firebase/firestore'
 import { firebaseApp } from './firebaseInit'
 
 const firestore = getFirestore(firebaseApp)
@@ -6,6 +6,17 @@ const firestore = getFirestore(firebaseApp)
 export const createRecord = ( _title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
     const newPost = doc(firestore, `Posts/${_contentID}`)
     setDoc(newPost, {
+        title: _title,
+        author: _author,
+        publish_date: _date,
+        content: _content,
+        contentID: _contentID
+    })
+}
+
+export const updateRecord = (_title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
+    const post = doc(firestore, `Post/${_contentID}`)
+    updateDoc(post, {
         title: _title,
         author: _author,
         publish_date: _date,
