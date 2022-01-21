@@ -1,13 +1,14 @@
-import { getFirestore, collection, addDoc, getDocs, DocumentData } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, DocumentData, setDoc, doc } from 'firebase/firestore'
 import { firebaseApp } from './firebaseInit'
 
 const firestore = getFirestore(firebaseApp)
 
 export const createRecord = ( _title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
-    addDoc(collection(firestore, "Posts"), {
+    const newPost = doc(firestore, `Posts/${_contentID}`)
+    setDoc(newPost, {
         title: _title,
         author: _author,
-        date: _date,
+        publish_date: _date,
         content: _content,
         contentID: _contentID
     })
