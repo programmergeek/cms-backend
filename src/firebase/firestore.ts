@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, DocumentData, setDoc, doc, updateDoc } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, DocumentData, setDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { firebaseApp } from './firebaseInit'
 
 const firestore = getFirestore(firebaseApp)
@@ -23,6 +23,10 @@ export const updatePost = (_title:string, _author:string, _content:string, _date
         content: _content,
         contentID: _contentID
     })
+}
+
+export const deletePost = async (contentID:string) => {
+    await deleteDoc(doc(firestore, "Posts", contentID))
 }
 
 export const getPosts = async () => {
