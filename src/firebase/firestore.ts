@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, DocumentData, setDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, getDoc, DocumentData, setDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { firebaseApp } from './firebaseInit'
 
 const firestore = getFirestore(firebaseApp)
@@ -50,4 +50,17 @@ export const getPosts = async () => {
         data.push(doc.data())
     })
     return data
+}
+
+/**
+ * Returns either the data of one post or the message "Post does not exits"
+ */
+export const getPost = async (contentID:string) => {
+    const postRef = doc(firestore, "Posts", contentID)
+    const post = await getDoc(postRef)
+    if(post.exists()){
+        return post.data()
+    }else{
+        return "Post does not exist"
+    }
 }
