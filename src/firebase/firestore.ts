@@ -3,7 +3,7 @@ import { firebaseApp } from './firebaseInit'
 
 const firestore = getFirestore(firebaseApp)
 
-export const createRecord = ( _title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
+export const createPost = ( _title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
     const newPost = doc(firestore, `Posts/${_contentID}`)
     setDoc(newPost, {
         title: _title,
@@ -14,7 +14,7 @@ export const createRecord = ( _title:string, _author:string, _content:string, _d
     })
 }
 
-export const updateRecord = (_title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
+export const updatePost = (_title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
     const post = doc(firestore, `Post/${_contentID}`)
     updateDoc(post, {
         title: _title,
