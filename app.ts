@@ -1,9 +1,10 @@
 import express from 'express'
 import { getPosts } from './src/firebase/firestore'
+import { router } from './src/routes'
 
 const app = express()
 const PORT = 8000
-app.get('/', async (req, res) => res.send( await getPosts().then(results => results)))
+app.use('/', router)
 app.listen(PORT, () => {
     console.log(`⚡[server]: is running at https://localhost:${PORT}⚡`)
 })
