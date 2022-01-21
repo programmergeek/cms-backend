@@ -21,9 +21,9 @@ export const createPost = ( _title:string, _author:string, _content:string, _dat
 /**
  * Updates a post form firestore. Content id is used to specify the post
  */
-export const updatePost = (_title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
+export const updatePost = (_title:string, _author:string, _content:string, _date:string, _contentID:string) => {
     const post = doc(firestore, `Post/${_contentID}`)
-    updateDoc(post, {
+    return updateDoc(post, {
         title: _title,
         author: _author,
         publish_date: _date,
