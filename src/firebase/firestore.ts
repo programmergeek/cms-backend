@@ -7,9 +7,9 @@ const firestore = getFirestore(firebaseApp)
  * Creates a new post.
  */
 
-export const createPost = ( _title:string, _author:string, _content:string, _date:Date, _contentID:string) => {
+export const createPost = ( _title:string, _author:string, _content:string, _date:string, _contentID:string) => {
     const newPost = doc(firestore, `Posts/${_contentID}`)
-    setDoc(newPost, {
+    return setDoc(newPost, {
         title: _title,
         author: _author,
         publish_date: _date,
