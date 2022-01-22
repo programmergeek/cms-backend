@@ -1,12 +1,21 @@
 import { getFirestore, collection, getDocs, getDoc, DocumentData, setDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
-import { firebaseApp } from './firebaseInit'
+import { initializeApp } from 'firebase/app'
 
+const firebaseConfig = {
+    apiKey: "AIzaSyA46AWeqMixKWl26YEf_mXR8_kSwIEC014",
+    authDomain: "cms-database-e8f5d.firebaseapp.com",
+    projectId: "cms-database-e8f5d",
+    storageBucket: "cms-database-e8f5d.appspot.com",
+    messagingSenderId: "172999974843",
+    appId: "1:172999974843:web:bbe9bbaa538365554bae9e"
+  };
+
+const firebaseApp = initializeApp(firebaseConfig);
 const firestore = getFirestore(firebaseApp)
 
 /**
  * Creates a new post.
  */
-
 export const createPost = ( _title:string, _author:string, _content:string, _date:string, _contentID:string) => {
     const newPost = doc(firestore, `Posts/${_contentID}`)
     return setDoc(newPost, {

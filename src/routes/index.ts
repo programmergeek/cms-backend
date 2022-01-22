@@ -1,5 +1,5 @@
 import express from 'express'
-import { createPost, deletePost, getPost, getPosts, updatePost } from '../firebase/firestore'
+import { createPost, deletePost, getPost, getPosts, updatePost } from '../controllers/postsControllers'
 import { getTodaysDate } from '../helper functions/date'
 import { generateContentId } from '../helper functions/genContentID'
 

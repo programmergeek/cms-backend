@@ -1,5 +1,4 @@
 import express from 'express'
-import { getPosts } from './src/firebase/firestore'
 import { router } from './src/routes'
 
 const app = express()
