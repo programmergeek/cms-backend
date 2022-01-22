@@ -1,5 +1,5 @@
 import express from 'express'
-import { createPost, deletePost, getPosts, updatePost } from '../firebase/firestore'
+import { createPost, deletePost, getPost, getPosts, updatePost } from '../firebase/firestore'
 import { getTodaysDate } from '../helper functions/date'
 import { generateContentId } from '../helper functions/genContentID'
 
@@ -11,7 +11,10 @@ router.get("/", async function(req, res, next){
 })
 
 // get a single post
-router.get("/post/:content_id", function(req, res, next){ res.send("Sparta")})
+router.get("/post/:content_id", async function(req, res, next){ 
+    res.send(await getPost(req.params.content_id).then((results) => results)
+    )
+})
 
 // create a new post
 router.post("/create", function(req, res, next){
