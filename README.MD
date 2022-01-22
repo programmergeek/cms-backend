@@ -23,7 +23,7 @@ A simple api to manage your posts.
 
 The shape of the post data is:
 
-```JSON
+```javascript
 {
     content_id: "3JKtsxFfRgmYWCnMmXVX",
     publish_date: "22 January 2022",
